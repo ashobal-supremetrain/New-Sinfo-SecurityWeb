@@ -1,0 +1,17 @@
+// Renamed from middleware.ts to middleware.ts.bak to prevent it from being used
+// This is a backup of the original middleware file
+
+import { NextResponse } from 'next/server';
+import type { NextRequest } from 'next/server';
+
+export function middleware(request: NextRequest) {
+  // Simple middleware that doesn't handle authorization
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: [
+    // No matchers
+  ],
+};
+
