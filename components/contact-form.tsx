@@ -2,8 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
-import { useActionState } from "react"
+import { useState, useReducer } from "react"
 import { useFormStatus } from "react-dom"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -21,9 +20,22 @@ const initialState = {
   message: "",
 }
 
+function formReducer(state: typeof initialState, action: any) {
+  switch (action.type) {
+    case "SUBMIT_SUCCESS":
+      return { ...state, success: true, message: action.payload, errors: {} }
+    case "SUBMIT_FAILURE":
+      return { ...state, success: false, errors: action.payload }
+    case "RESET":
+      return initialState
+    default:
+      return state
+  }
+}
+
 export default function ContactForm() {
   const [serviceType, setServiceType] = useState("")
-  const [formState, formAction] = useActionState(submitContactForm, initialState)
+  const [formState, dispatch] = useReducer(formReducer, initialState)
   const { toast } = useToast()
   const [formSubmitted, setFormSubmitted] = useState(false)
 
@@ -37,11 +49,17 @@ export default function ContactForm() {
     setFormSubmitted(true)
   }
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault() // Prevent default form submission
     setFormSubmitted(false)
     const formData = new FormData(e.currentTarget)
-    formAction(formData)
+
+    try {
+      const response = await submitContactForm(formData)
+      dispatch({ type: "SUBMIT_SUCCESS", payload: response.message })
+    } catch (error: any) {
+      dispatch({ type: "SUBMIT_FAILURE", payload: error.errors || { _form: "An unexpected error occurred." } })
+    }
   }
 
   return (
@@ -193,4 +211,3 @@ function SubmitButton({ disabled }: { disabled: boolean }) {
     </Button>
   )
 }
-

@@ -39,7 +39,7 @@ const developmentProjects = [
     id: 4,
     title: "E-commerce Platform",
     description: "Scalable e-commerce solution with secure payment processing and inventory management.",
-    image: "https://images.unsplash.com/photo-1556742077-0a6b6a24b2be?q=80&w=1000&auto=format&fit=crop",
+    image: "https://empowerafrica.com/wp-content/uploads/sites/2/2024/02/bb6b0f53264a0ae1d90067153c065aeb.jpg",
     tags: ["React", "Node.js", "MongoDB", "Stripe"],
     demoUrl: "#",
     githubUrl: "#",

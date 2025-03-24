@@ -199,7 +199,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-24 left-0 right-0 flex justify-center gap-2 z-20">
+      <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2 z-20">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -215,7 +215,7 @@ export default function HeroSlider() {
 
       {/* Scroll Down Indicator */}
       <div className="scroll-indicator">
-        <span className="text-sm mb-1">Scroll Down</span>
+        <span className="text-sm mt-16">Scroll Down</span>
         <div className="scroll-indicator-dot"></div>
       </div>
     </div>
