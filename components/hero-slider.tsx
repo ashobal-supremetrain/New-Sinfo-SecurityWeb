@@ -179,7 +179,7 @@ export default function HeroSlider() {
       </AnimatePresence>
 
       {/* Navigation Arrows */}
-      <div className="absolute inset-0 flex items-center justify-between p-4 z-20">
+      {/* <div className="absolute inset-0 flex items-center justify-between p-4 z-20">
         <Button
           variant="ghost"
           size="icon"
@@ -196,7 +196,7 @@ export default function HeroSlider() {
         >
           <ChevronRight className="h-6 w-6" />
         </Button>
-      </div>
+      </div> */}
 
       {/* Slide Indicators */}
       <div className="absolute bottom-16 left-0 right-0 flex justify-center gap-2 z-20">

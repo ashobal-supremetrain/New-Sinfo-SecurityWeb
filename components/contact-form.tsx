@@ -176,7 +176,7 @@ export default function ContactForm() {
 
       <div className="flex items-center gap-2 mt-2">
         <div className="h-5 w-5 border border-input rounded flex items-center justify-center">
-          <input type="checkbox" id="recaptcha" required className="sr-only peer" disabled={formState.success} />
+          <input type="checkbox" id="recaptcha" className="sr-only peer" disabled={formState.success} />
           <div className="opacity-0 peer-checked:opacity-100 text-primary">✓</div>
         </div>
         <Label htmlFor="recaptcha" className="text-sm text-muted-foreground">
