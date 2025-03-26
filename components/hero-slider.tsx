@@ -171,7 +171,7 @@ export default function HeroSlider() {
                 Our Services
               </Button>
               <Button variant="outline" onClick={() => scrollToSection("contact")}>
-                Request Consultation
+                Request Consultations
               </Button>
             </motion.div>
           </motion.div>
